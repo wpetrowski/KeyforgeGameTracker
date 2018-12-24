@@ -34,7 +34,9 @@ namespace KeyforgeGameTracker
                 results.AddRange(segment.Results);
             }
 
-            return new OkObjectResult(results.Select(x => new { Player = x.PartitionKey, Deck = x.RowKey }));
+            var deckUrlTemplate = "https://www.keyforgegame.com/deck-details/{0}";
+
+            return new OkObjectResult(results.Select(x => new { Player = x.PartitionKey, Deck = x.RowKey, Houses = x.Houses, DeckUrl = string.Format(deckUrlTemplate, x.DeckId) }));
         }
     }
 }

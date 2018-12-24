@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
+using System;
 
 namespace KeyforgeGameTracker
 {
@@ -11,5 +12,9 @@ namespace KeyforgeGameTracker
         }
 
         public PlayerDeck() { }
+
+        public string Houses { get; set; }
+
+        public Guid DeckId { get; set; }
     }
 }
